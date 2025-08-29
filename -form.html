@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HTML5 Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background-color: #f9f9f9;
+    }
+    form {
+      max-width: 600px;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    fieldset {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+    th, td {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    .required::after {
+      content: " *";
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Event Registration Form</h1>
+  <p>Please fill out the form below to register for our upcoming event.</p>
+</header>
+
+<main>
+  <form action="/submit" method="POST" enctype="multipart/form-data" autocomplete="on">
+
+    <fieldset>
+      <legend>Personal Information</legend>
+
+      <label for="fullname" class="required">Full Name</label>
+      <input type="text" id="fullname" name="fullname" placeholder="John Doe" required autocomplete="name" />
+
+      <label for="email" class="required">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" autocomplete="tel" />
+
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob" />
+
+      <label for="readonly-id">Registration ID</label>
+      <input type="text" id="readonly-id" name="regid" value="REG-20250829-001" readonly />
+
+    </fieldset>
+
+    <fieldset>
+      <legend>Account Setup</legend>
+
+      <label for="username" class="required">Username</label>
+      <input type="text" id="username" name="username" required placeholder="Choose a username" />
+
+      <label for="password" class="required">Password</label>
+      <input type="password" id="password" name="password" required placeholder="Choose a password" minlength="8" autocomplete="new-password" />
+
+    </fieldset>
+
+    <fieldset>
+      <legend>Preferences</legend>
+
+      <label class="required">Meal Preference</label>
+      <input type="radio" id="veg" name="meal" value="Vegetarian" required />
+      <label for="veg">Vegetarian</label>
+      <input type="radio" id="nonveg" name="meal" value="Non-Vegetarian" />
+      <label for="nonveg">Non-Vegetarian</label>
+
+      <label class="required">Workshops</label>
+      <input type="checkbox" id="workshop1" name="workshops" value="AI Basics" />
+      <label for="workshop1">AI Basics</label>
+      <input type="checkbox" id="workshop2" name="workshops" value="Cloud Computing" />
+      <label for="workshop2">Cloud Computing</label>
+
+      <label for="country" class="required">Country</label>
+      <select id="country" name="country" required>
+        <option value="">-- Select Country --</option>
+        <option value="USA">USA</option>
+        <option value="UK">UK</option>
+        <option value="India">India</option>
+      </select>
+
+      <label for="comments">Additional Comments</label>
+      <textarea id="comments" name="comments" rows="4" placeholder="Let us know your thoughts..."></textarea>
+
+    </fieldset>
+
+    <fieldset>
+      <legend>Upload Documents</legend>
+      <label for="resume">Upload Resume (PDF only)</label>
+      <input type="file" id="resume" name="resume" accept=".pdf" />
+
+    </fieldset>
+
+    <button type="submit">Submit Registration</button>
+
+  </form>
+
+  <section aria-labelledby="form-guide">
+    <h2 id="form-guide">Form Guidelines</h2>
+    <ul>
+      <li>All fields marked with * are required.</li>
+      <li>Password must be at least 8 characters long.</li>
+      <li>Only PDF files are accepted for uploads.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="info-table">
+    <h2 id="info-table">Event Schedule Overview</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Session</th>
+          <th>Time</th>
+          <th>Speaker</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AI Basics</td>
+          <td>10:00 AM - 11:30 AM</td>
+          <td>Dr. Alice Smith</td>
+        </tr>
+        <tr>
+          <td>Cloud Computing</td>
+          <td>12:00 PM - 1:30 PM</td>
+          <td>Mr. John Lee</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section aria-labelledby="media">
+    <h2 id="media">Venue Map</h2>
+    <img src="https://via.placeholder.com/600x300?text=Venue+Map" alt="Venue map showing event layout and halls." style="width:100%; height:auto;" />
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Event Corp. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
